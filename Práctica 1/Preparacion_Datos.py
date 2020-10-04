@@ -83,18 +83,18 @@ def save_max_min(categorias,datos_sinCategoria):
     return lista_maximos, lista_minimos
 
 
-""" Export data to a specific file """
+""" Funcion para generar los ficheros de salida de datos """
 def generar_fichero(nombre, data, categorias, porcentaje, puntoInicial):
-    # File is open
+    #Abrimos el fichero donde vamos a escribir
     with open(carpeta_DatosProcesados + DatosEntrada + nombre + extension_salida, mode='w', newline='') as fichero_salida:
         writer = csv.writer(fichero_salida, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
-        # Escribimos las categorias
+        #Escribimos las categorias
         writer.writerow(categorias)
         #Calculamos el número de filas a incluir en este fichero segun el porcentaje
         num_filas = int(porcentaje * len(data))
         puntoFinal = puntoInicial+num_filas
         print ("puntoIncial", puntoInicial, "puntoFinal", puntoFinal)
-        # Write each row of data (normalized)
+        #Escribimos en sus ficheros respectivos los datos
         for fila in range(puntoInicial, puntoFinal):
             writer.writerow(data[fila])
     return puntoFinal
