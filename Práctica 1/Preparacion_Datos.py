@@ -1,6 +1,6 @@
 import csv
 import random
-from random import sample "Prueba Git Hub"
+from random import sample
 
 """ Directorios """
 carpeta_DatosProcesados = 'DatosProcesados/'
