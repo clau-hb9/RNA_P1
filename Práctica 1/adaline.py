@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+# He ejecutado py -3 -m venv .venv
 import random
 import numpy as np
 
@@ -26,7 +27,7 @@ class Adaline:
         self.debug = debug
         self.errors_log = ''
         # Initial weights and threshold
-        self.pesos = random.uniform(-1,1) for x in range(len(self.datos_entrenamiento[0]) - 1)
+        #self.pesos = random.uniform(-1,1) for x in range(len(self.datos_entrenamiento[0]) - 1)
         self.umbral = random.uniform(-1,1)
 
 
