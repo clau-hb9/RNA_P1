@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-# He ejecutado py -3 -m venv .venv
 import random
 import numpy as np
 
