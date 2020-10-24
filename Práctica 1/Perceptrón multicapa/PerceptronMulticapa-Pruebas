@@ -18,6 +18,8 @@ TrainMSE   TrainMAE   ValidMSE   ValidMAE    TestMSE    TestMAE
 0.01578445 0.08576444 0.01466319 0.08536354 0.01529594 0.08628481 
 
 
+
+
 											***** ESTUDIO DE CAPAS *****
 Datos genéricos para todas las pruebas:
  - Razón de aprendizaje: 0,2
@@ -35,7 +37,7 @@ c(50)		0.01382		0.01289		0.01355
 
 
 
-** MEJOR MODELO CON UNA CAPA (ERRORES EXPANDIDOS) --> c()**
+** MEJOR MODELO CON UNA CAPA (ERRORES EXPANDIDOS) --> c(20)**
 TrainMSE   TrainMAE   ValidMSE   ValidMAE    TestMSE    TestMAE
 0.01369676 0.07859100 0.01260722 0.07772082 0.01330404 0.07830930
 
@@ -57,18 +59,31 @@ TrainMSE   TrainMAE   ValidMSE   ValidMAE    TestMSE    TestMAE
 -> MODELOS CON TRES CAPAS:
 
 Topología   	TrainMSE    ValidMSE    TestMSE
-c(10, 20, 30)
-c(10, 15, 20)
-c(5, 7, 10)
+c(10, 20, 30)	0.014536 	0.013856 	0.014024
+c(10, 15, 20)	0.013389	0.012619	0.013241
+c(5,  7,  10)	0.013662 	0.013286 	0.013588
+c(8,  15, 20)	0.013025	0.012666	0.013064
+c(8,  15, 10)	0.012109	0.011698	0.012171 
+c(8,  20,  8)	0.012322	0.011791	0.012322 
 
 
-** MEJOR MODELO CON TRES CAPAS (ERRORES EXPANDIDOS) --> c()**
+** MEJOR MODELO CON TRES CAPAS (ERRORES EXPANDIDOS) --> c(8, 15, 10)**
 TrainMSE   TrainMAE   ValidMSE   ValidMAE    TestMSE    TestMAE
+0.01210978 0.07284893 0.01169826 0.07391304 0.01217111 0.07399874 
 
 
 											***** ESTUDIO DE RAZÓN DE APRENDIZAJE *****
 
 -> MODELOS CON UNA CAPA:
+Datos genéricos para todas las pruebas:
+ - Topología c(29)
+ - Ciclos máximos: 2000
+ - seed = 9
+Razón  TrainMSE    ValidMSE    TestMSE
+0,2		0.01369		0.01260		0.01330
+
+
+
 
 
 
@@ -96,3 +111,10 @@ Razón	TrainMSE   TrainMAE   ValidMSE   ValidMAE    TestMSE    TestMAE
 
 
 -> MODELOS CON TRES CAPAS
+Datos genéricos para todas las pruebas:
+ - Topología c(8, 15, 10)
+ - Ciclos máximos: 2000
+ - seed = 9
+
+ Razón  TrainMSE    ValidMSE    TestMSE
+ 0,2	0.012109	0.011698	0.012171
