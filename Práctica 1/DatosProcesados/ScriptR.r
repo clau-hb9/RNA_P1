@@ -25,7 +25,7 @@ salida <- ncol (trainSet)   #num de la columna de salida
 
 
 #SELECCION DE LOS PARAMETROS
-topologia        <-  10 #PARAMETRO DEL TIPO c(A,B,C,...,X) A SIENDO LAS NEURONAS EN LA CAPA OCULTA 1, B LA CAPA 2 ...
+topologia        <-  50 #PARAMETRO DEL TIPO c(A,B,C,...,X) A SIENDO LAS NEURONAS EN LA CAPA OCULTA 1, B LA CAPA 2 ...
 razonAprendizaje <- 0.2 #NUMERO REAL ENTRE 0 y 1
 ciclosMaximos    <- 2000 #NUMERO ENTERO MAYOR QUE 0
 seed            <- 9
@@ -80,11 +80,11 @@ prediccionesTest  <- predict(model, testSet[,-salida])
 
 #CALCULO DE LOS ERRORES
 errors <- c(TrainMSE= MSE(pred= prediccionesTrain,obs= trainSet[,salida]),
-            TrainMAE= MAE(pred= prediccionesTrain, obs=  trainSet[,salida]),
+            #TrainMAE= MAE(pred= prediccionesTrain, obs=  trainSet[,salida]),
             ValidMSE= MSE(pred= prediccionesValid,obs= validSet[,salida]),
-            ValidMAE= MAE(pred= prediccionesValid, obs=  validSet[,salida]),
-            TestMSE=  MSE(pred= prediccionesTest ,obs=  testSet[,salida]),
-            TestMAE= MAE(pred= prediccionesTest, obs=  testSet[,salida]))
+            #ValidMAE= MAE(pred= prediccionesValid, obs=  validSet[,salida]),
+            TestMSE=  MSE(pred= prediccionesTest ,obs=  testSet[,salida]))
+            #TestMAE= MAE(pred= prediccionesTest, obs=  testSet[,salida]))
 errors
 
 
