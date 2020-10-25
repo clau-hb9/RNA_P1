@@ -6,7 +6,7 @@ import numpy as np
 class Adaline:
 
     #Declaración de los parámetros de la clase
-    def __init__(self, id, razon_aprendizaje, datos_entrenamiento, datos_validacion, graph, debug, min_ciclos=300, max_ciclos=700):
+    def __init__(self, id, razon_aprendizaje, datos_entrenamiento, datos_validacion, graph, debug, min_ciclos=5, max_ciclos=10):
         # id
         self.id = id 
         # Tiempo de entrenamiento
@@ -23,6 +23,8 @@ class Adaline:
         for _ in range(len(self.datos_entrenamiento[0]) - 1):
             self.pesos.append(random.uniform(-1,1))
 
+        self.errores_entrenamiento = []
+        self.errores_validacion = []
         # Do or do not show graph while training
         self.figure = plt.figure(id)
         self.graph = graph
@@ -36,6 +38,7 @@ class Adaline:
         for num1, num2 in zip(self.pesos, valores_entrenamiento_entrada):
             producto.append(num1 * num2)
         suma = sum(x for x in producto)
+        suma += self.umbral
         return suma
 
     def descenso_gradiante (self, salida_producida, valor_esperado, valores_entrenamiento_entrada):
@@ -100,7 +103,7 @@ class Adaline:
             valores_validacion_salidaEsperada.append(fila[len(self.datos_validacion[0]) - 1])
             
         # Error total producido en cada ciclo --> Contiene mse y mae para cada ciclo
-        errores_validacion, errores_entrenamiento = [], []
+        self.errores_validacion, self.errores_entrenamiento = [], []
 
         # Recorremos como máximo max_ciclos
         for i in range(self.max_ciclos):
@@ -125,12 +128,12 @@ class Adaline:
                 salidasProducidas_validacion.append(self.salida_producida(valores_validacion_entrada[x]))
                 
             # Calculamos los errores mae y mse --> Esto solo se hara al final de cada ciclo
-            errores_entrenamiento.append(self.error(valores_entrenamiento_salidaEsperada, salidasProducidas_entrenamiento))
-            print ("ERRORES entrenamiento ciclo ", i, ":" ,errores_entrenamiento[i])
-            errores_validacion.append(self.error(valores_validacion_salidaEsperada, salidasProducidas_validacion))
+            self.errores_entrenamiento.append(self.error(valores_entrenamiento_salidaEsperada, salidasProducidas_entrenamiento))
+            #print ("ERRORES entrenamiento ciclo ", i, ":" ,errores_entrenamiento[i])
+            self.errores_validacion.append(self.error(valores_validacion_salidaEsperada, salidasProducidas_validacion))
                                 
             # Break condition (after min_epochs at least)
-            if i > self.min_ciclos and self.parada(errores_validacion):
+            if i > self.min_ciclos and self.parada(self.errores_validacion):
                 break
 
         # Return trained model
