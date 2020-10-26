@@ -6,7 +6,7 @@ import numpy as np
 class Adaline:
 
     #Declaración de los parámetros de la clase
-    def __init__(self, id, razon_aprendizaje, datos_entrenamiento, datos_validacion, graph, debug, min_ciclos=5, max_ciclos=10):
+    def __init__(self, id, razon_aprendizaje, datos_entrenamiento, datos_validacion, min_ciclos=700, max_ciclos=2000):
         # id
         self.id = id 
         # Tiempo de entrenamiento
@@ -25,14 +25,10 @@ class Adaline:
 
         self.errores_entrenamiento = []
         self.errores_validacion = []
-        # Do or do not show graph while training
-        self.figure = plt.figure(id)
-        self.graph = graph
-        # Do or do not show debug logs while training
-        self.debug = debug
-        self.errors_log = ''
+        self.ciclos = 0
+        
 
-
+    """ Función que calcula la salida producida """
     def salida_producida(self, valores_entrenamiento_entrada):
         producto = []
         for num1, num2 in zip(self.pesos, valores_entrenamiento_entrada):
@@ -41,6 +37,7 @@ class Adaline:
         suma += self.umbral
         return suma
 
+    """ Función que aplica el descenso del gradiente """
     def descenso_gradiante (self, salida_producida, valor_esperado, valores_entrenamiento_entrada):
         # Calculamos el incremento --> Razon de entrenamiento * (d[i]-y[i])
         delta = self.razon_aprendizaje * (valor_esperado - salida_producida)
@@ -51,9 +48,9 @@ class Adaline:
         self.umbral += delta
 
 
-    # Returns whether there is a reason to stop training 
+    """ Función que mira si se cumple la condición de parada """ 
     def parada(self, errores_validacion):
-        # There had not been significant changes (>0.0001) since [min_epochs] iterations before
+        # Si no hay cambios significantes (< 0,0001) en los errores de validación --> Paramos
         no_cambios_significantes = False
         error_validacion_antiguo = errores_validacion[(len(errores_validacion) - self.min_ciclos)][1] 
         error_validacion_nuevo = errores_validacion[(len(errores_validacion) -1)][1]
@@ -63,7 +60,7 @@ class Adaline:
 
         
         if no_cambios_significantes:
-            print("[STOP] No significant change | Trained epochs: ", self.ciclos)
+            print("[PARADA] No hay cambios significativos --> Ciclos entrenados: ", self.ciclos)
         return no_cambios_significantes
 
 
@@ -82,7 +79,7 @@ class Adaline:
         return mse, mae
 
 
-    #Función de entrenamiento
+    """Función de entrenamiento"""
     def entrenamiento(self):
         # Variables donde guardaremos los datos de entrada
         valores_entrenamiento_entrada = []
@@ -118,8 +115,8 @@ class Adaline:
                 # Con esta salida, procedemos a ajustar los pesos y el umbral
                 self.descenso_gradiante(salida_producida, valores_entrenamiento_salidaEsperada[j], valores_entrenamiento_entrada[j])
 
-            #print("PESOS FINALES del ciclo ", i, " : ", self.pesos)
-            # Cuando tenemos ajustados los pesos de este ciclo, calculamos de nuevo la salida producida por cada entrada
+            
+            # Cuando tenemos ajustados los pesos de este ciclo, calculamos de nuevo la salida producida por cada entrada. De esta manera podemos calcular el error.
             # Entrenamiento
             for x in range(len(valores_entrenamiento_entrada)):
                 salidasProducidas_entrenamiento.append(self.salida_producida(valores_entrenamiento_entrada[x]))
@@ -129,14 +126,13 @@ class Adaline:
                 
             # Calculamos los errores mae y mse --> Esto solo se hara al final de cada ciclo
             self.errores_entrenamiento.append(self.error(valores_entrenamiento_salidaEsperada, salidasProducidas_entrenamiento))
-            #print ("ERRORES entrenamiento ciclo ", i, ":" ,errores_entrenamiento[i])
             self.errores_validacion.append(self.error(valores_validacion_salidaEsperada, salidasProducidas_validacion))
                                 
-            # Break condition (after min_epochs at least)
+            # Conción de parada. Al menos debemos haber recorrido el minimo numero de ciclos.
             if i > self.min_ciclos and self.parada(self.errores_validacion):
                 break
 
-        # Return trained model
+        # Devolvemos el modelo entrenado
         return self
 
 

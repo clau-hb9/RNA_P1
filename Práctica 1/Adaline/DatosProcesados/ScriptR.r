@@ -25,7 +25,7 @@ salida <- ncol (trainSet)   #num de la columna de salida
 
 
 #SELECCION DE LOS PARAMETROS
-topologia        <-  c(5,7,10) #PARAMETRO DEL TIPO c(A,B,C,...,X) A SIENDO LAS NEURONAS EN LA CAPA OCULTA 1, B LA CAPA 2 ...
+topologia        <-  c(30,30) #PARAMETRO DEL TIPO c(A,B,C,...,X) A SIENDO LAS NEURONAS EN LA CAPA OCULTA 1, B LA CAPA 2 ...
 razonAprendizaje <- 0.2 #NUMERO REAL ENTRE 0 y 1
 ciclosMaximos    <- 2000 #NUMERO ENTERO MAYOR QUE 0
 seed            <- 9
@@ -40,7 +40,7 @@ model <- mlp(x= trainSet[,-salida],
              size= topologia,
              maxit=ciclosMaximos,
              learnFuncParams=c(razonAprendizaje),
-             shufflePatterns = F
+             shufflePatterns = T
              )
 
 #GRAFICO DE LA EVOLUCION DEL ERROR
@@ -65,7 +65,7 @@ model <- mlp(x= trainSet[,-salida],
              size= topologia,
              maxit=nuevosCiclos,
              learnFuncParams=c(razonAprendizaje),
-             shufflePatterns = F
+             shufflePatterns = T
 )
 #GRAFICO DE LA EVOLUCION DEL ERROR
 plotIterativeError(model)
@@ -80,11 +80,11 @@ prediccionesTest  <- predict(model, testSet[,-salida])
 
 #CALCULO DE LOS ERRORES
 errors <- c(TrainMSE= MSE(pred= prediccionesTrain,obs= trainSet[,salida]),
-            #TrainMAE= MAE(pred= prediccionesTrain, obs=  trainSet[,salida]),
+            TrainMAE= MAE(pred= prediccionesTrain, obs=  trainSet[,salida]),
             ValidMSE= MSE(pred= prediccionesValid,obs= validSet[,salida]),
-            #ValidMAE= MAE(pred= prediccionesValid, obs=  validSet[,salida]),
-            TestMSE=  MSE(pred= prediccionesTest ,obs=  testSet[,salida]))
-            #TestMAE= MAE(pred= prediccionesTest, obs=  testSet[,salida]))
+            ValidMAE= MAE(pred= prediccionesValid, obs=  validSet[,salida]),
+            TestMSE=  MSE(pred= prediccionesTest ,obs=  testSet[,salida]),
+            TestMAE= MAE(pred= prediccionesTest, obs=  testSet[,salida]))
 errors
 
 
