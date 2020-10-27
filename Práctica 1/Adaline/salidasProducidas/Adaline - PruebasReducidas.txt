@@ -1,3 +1,40 @@
+															*** MIN = 2000, MAX = 10000 ***
+ 
+ -> Probando una razón de entrenamiento = 0.0001
+[PARADA] No hay cambios significativos --> Ciclos entrenados:  9643
+TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
+0.02073    0.10561     0.01943    0.10400    0.02108    0.10498
+ 
+ -> Probando una razón de entrenamiento = 0.001
+[PARADA] No hay cambios significativos --> Ciclos entrenados:  2945
+TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
+0.02067    0.10480     0.01945    0.10324    0.02153    0.10446
+ 
+ -> Probando una razón de entrenamiento = 0.01
+[PARADA] No hay cambios significativos --> Ciclos entrenados:  2059
+TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
+0.02136    0.10337     0.02016    0.10190    0.02222    0.10322
+ 
+ -> Probando una razón de entrenamiento = 0.05
+[PARADA] No hay cambios significativos --> Ciclos entrenados:  2012
+TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
+0.02171    0.10350     0.02054    0.10223    0.02259    0.10347
+ 
+ -> Probando una razón de entrenamiento = 0.1
+[PARADA] No hay cambios significativos --> Ciclos entrenados:  2007
+TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
+0.02188    0.10385     0.02073    0.10252    0.02281    0.10383
+ 
+ -> Probando una razón de entrenamiento = 0.2
+[PARADA] No hay cambios significativos --> Ciclos entrenados:  2009
+TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
+0.02274    0.10598     0.02166    0.10451    0.02378    0.10595
+ 
+ -> Probando una razón de entrenamiento = 0.3
+[PARADA] No hay cambios significativos --> Ciclos entrenados:  2013
+TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
+0.02389    0.10933     0.02291    0.10786    0.02502    0.10919															
+
 															*** MIN = 1000, MAX = 3000 ***
 
 
@@ -36,43 +73,42 @@ TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
 0.02389    0.10933     0.02291    0.10786    0.02502    0.10919
 
 
+															*** MIN = 500, MAX = 5000 ***
 
-															*** MIN = 2000, MAX = 10000 ***
- 
- -> Probando una razón de entrenamiento = 0.0001
-[PARADA] No hay cambios significativos --> Ciclos entrenados:  9643
+-> Probando una razón de entrenamiento = 0.0001
 TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
-0.02073    0.10561     0.01943    0.10400    0.02108    0.10498
- 
+0.02104    0.10656     0.01969    0.10468    0.02084    0.10551
+
  -> Probando una razón de entrenamiento = 0.001
-[PARADA] No hay cambios significativos --> Ciclos entrenados:  2945
+[PARADA] No hay cambios significativos --> Ciclos entrenados:  1651
 TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
-0.02067    0.10480     0.01945    0.10324    0.02153    0.10446
- 
+0.02070    0.10484     0.01943    0.10324    0.02123    0.10431
+
  -> Probando una razón de entrenamiento = 0.01
-[PARADA] No hay cambios significativos --> Ciclos entrenados:  2059
+[PARADA] No hay cambios significativos --> Ciclos entrenados:  539
 TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
-0.02136    0.10337     0.02016    0.10190    0.02222    0.10322
+0.02135    0.10336     0.02015    0.10189    0.02220    0.10319
  
  -> Probando una razón de entrenamiento = 0.05
-[PARADA] No hay cambios significativos --> Ciclos entrenados:  2012
+[PARADA] No hay cambios significativos --> Ciclos entrenados:  514
 TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
 0.02171    0.10350     0.02054    0.10223    0.02259    0.10347
  
  -> Probando una razón de entrenamiento = 0.1
-[PARADA] No hay cambios significativos --> Ciclos entrenados:  2007
+[PARADA] No hay cambios significativos --> Ciclos entrenados:  506
 TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
 0.02188    0.10385     0.02073    0.10252    0.02281    0.10383
  
  -> Probando una razón de entrenamiento = 0.2
-[PARADA] No hay cambios significativos --> Ciclos entrenados:  2009
+[PARADA] No hay cambios significativos --> Ciclos entrenados:  506
 TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
 0.02274    0.10598     0.02166    0.10451    0.02378    0.10595
  
  -> Probando una razón de entrenamiento = 0.3
-[PARADA] No hay cambios significativos --> Ciclos entrenados:  2013
+[PARADA] No hay cambios significativos --> Ciclos entrenados:  515
 TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
 0.02389    0.10933     0.02291    0.10786    0.02502    0.10919
+
 
 															*** MIN = 200, MAX = 2000 ***
 
