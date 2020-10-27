@@ -1,5 +1,13 @@
 															*** MIN = 2000, MAX = 10000 ***
  
+ -> Probando una razón de entrenamiento = 1e-06
+TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
+0.02578    0.12100     0.02527    0.12057    0.02560    0.12159
+ 
+ -> Probando una razón de entrenamiento = 1e-05
+TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
+0.02197    0.10916     0.02056    0.10689    0.02138    0.10782 
+
  -> Probando una razón de entrenamiento = 0.0001
 [PARADA] No hay cambios significativos --> Ciclos entrenados:  9643
 TrainMSE   TrainMAE   ValidMSE   ValidMAE   TestMSE     TestMAE
