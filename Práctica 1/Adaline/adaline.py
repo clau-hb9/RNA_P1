@@ -6,7 +6,7 @@ import numpy as np
 class Adaline:
 
     #Declaración de los parámetros de la clase
-    def __init__(self, id, razon_aprendizaje, datos_entrenamiento, datos_validacion, min_ciclos=700, max_ciclos=2000):
+    def __init__(self, id, razon_aprendizaje, datos_entrenamiento, datos_validacion, min_ciclos=200, max_ciclos=2000):
         # id
         self.id = id 
         # Tiempo de entrenamiento
