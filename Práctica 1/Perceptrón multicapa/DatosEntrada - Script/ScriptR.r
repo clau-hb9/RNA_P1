@@ -12,10 +12,12 @@ MAE <- function(pred,obs) {sum(abs(pred-obs)/length(obs))}
  validSet <- read.csv( "DatosEntrada_validacion.txt",dec=".",sep=",",header = T)
  testSet  <- read.csv("DatosEntrada_test.txt",dec=".",sep=",",header = T)
 #SELECCION DE LOS PARAMETROS
+
 topologia        <-  c(8, 15, 10) #PARAMETRO DEL TIPO c(A,B,C,...,X) A SIENDO LAS NEURONAS EN LA CAPA OCULTA 1, B LA CAPA 2 ...
 razonAprendizaje <- 0.8 #NUMERO REAL ENTRE 0 y 1
 ciclosMaximos    <- 2500 #NUMERO ENTERO MAYOR QUE 0
-seed            <- 9
+
+
 
 #EJECUCION DEL APRENDIZAJE Y GENERACION DEL MODELO
 
