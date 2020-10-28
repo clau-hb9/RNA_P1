@@ -1,0 +1,2 @@
+longitude   latitude   MedianAge  TRooms  TBedrooms   population   households  medIncome    umbral
+-0.90352    -0.84804    0.11446    -0.42337    1.39642    -2.64365    0.40943    1.16737    0.75642    

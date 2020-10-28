@@ -6,7 +6,7 @@ import numpy as np
 class Adaline:
 
     #Declaración de los parámetros de la clase
-    def __init__(self, id, razon_aprendizaje, datos_entrenamiento, datos_validacion, min_ciclos=200, max_ciclos=2000):
+    def __init__(self, id, razon_aprendizaje, datos_entrenamiento, datos_validacion, min_ciclos=500, max_ciclos=5000):
         # id
         self.id = id 
         # Tiempo de entrenamiento
@@ -72,10 +72,10 @@ class Adaline:
             diferencia.append(valores_esperados[x] - salidasProducidas[x])
     
         suma_cuadratica = sum(x**2 for x in diferencia)
-        mse = suma_cuadratica/len(diferencia)
+        mse = suma_cuadratica/len(valores_esperados)
 
         suma_absoluto = sum(abs(x) for x in diferencia)
-        mae = suma_absoluto/len(diferencia)
+        mae = suma_absoluto/len(valores_esperados)
         return mse, mae
 
 
