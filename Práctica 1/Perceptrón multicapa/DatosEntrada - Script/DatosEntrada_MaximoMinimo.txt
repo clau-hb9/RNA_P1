@@ -1,3 +1,0 @@
-"longitude","latitude","housing_median_age","total_rooms","total_bedrooms","population","households","median_income","median_house_value"
--114.31,41.95,52.0,37937.0,6445.0,35682.0,6082.0,15.0001,500001.0
--124.35,32.54,1.0,2.0,1.0,3.0,1.0,0.4999,14999.0

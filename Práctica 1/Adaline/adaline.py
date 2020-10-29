@@ -6,7 +6,7 @@ import numpy as np
 class Adaline:
 
     #Declaración de los parámetros de la clase
-    def __init__(self, id, razon_aprendizaje, datos_entrenamiento, datos_validacion, min_ciclos=500, max_ciclos=5000):
+    def __init__(self, id, razon_aprendizaje, datos_entrenamiento, datos_validacion, min_ciclos=1000, max_ciclos=3000):
         # id
         self.id = id 
         # Tiempo de entrenamiento
@@ -27,7 +27,7 @@ class Adaline:
         self.errores_validacion = []
         self.ciclos = 0
         
-
+ 
     """ Función que calcula la salida producida """
     def salida_producida(self, valores_entrenamiento_entrada):
         producto = []

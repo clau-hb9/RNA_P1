@@ -130,7 +130,7 @@ def main():
     datos_validacion = leer(carpeta_datosProcesados, 'DatosEntrada_validacion')
 
     # Lista con las distintas razones de aprendizaje
-    razones_aprendizaje = [0.00005]
+    razones_aprendizaje = [0.0002]
     entrenamiento('DatosEntrada', datos_entrenamiento, datos_validacion, razones_aprendizaje)
 
 
