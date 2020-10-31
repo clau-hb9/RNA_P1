@@ -4,10 +4,11 @@ import os
 
 
 
+
 """ Variables globales """
 directorio_actual = os.path.dirname(os.path.abspath(__file__))
 carpeta_datosProcesados = 'DatosProcesados/'
-carpeta_salidasProducidas = 'salidasProducidas/'
+carpeta_salidasProducidas = 'Pruebas/'
 extension = '.txt'
 
 
@@ -34,6 +35,9 @@ def escribir_modelo(adaline, fichero, razon_aprendizaje):
     errores_test = test(adaline, os.path.join(directorio_actual, directorio))
     # Escribimos los errores de entrenamiento, validación y test en un fichero
     escribir_errores(adaline, os.path.join(directorio_actual, directorio), errores_test)
+    
+
+
 
 """ Función para escribir los pesos + umbral en un fichero """
 def escribir_pesos (adaline, directorio):
@@ -84,7 +88,7 @@ def test (adaline, directorio):
     errores_test.append(adaline.error(valores_test_salidaEsperada, salidasProducidas_test))
     
     # Desnormalizo las salidas (producida y esperada)
-    fichero_max_min = leer(carpeta_datosProcesados, 'DatosEntrada_maximominimo')
+    fichero_max_min = leer(carpeta_datosProcesados, 'DatosEntrada_MaximoMinimo')
     max = fichero_max_min[0][len(fichero_max_min[0]) - 1]
     min = fichero_max_min[1][len(fichero_max_min[1]) - 1]
     salidaEsperada_desnormalizada = desnormalizar (valores_test_salidaEsperada, max, min)

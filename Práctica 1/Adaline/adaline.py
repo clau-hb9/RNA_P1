@@ -1,6 +1,6 @@
-import matplotlib.pyplot as plt
+
 import random
-import numpy as np
+
 
 #Implementación de la clase Adaline
 class Adaline:
@@ -64,7 +64,7 @@ class Adaline:
         return no_cambios_significantes
 
 
-    """ Computing MSE (mean square error) and MAE (mean absolute error) for current model state """
+    """ Función que calcula el MSE y MAE """
     def error(self, valores_esperados, salidasProducidas):
         diferencia = []
         #Para todos los resultados obtenidos calculamos su diferencia con los esperados
